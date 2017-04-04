@@ -1,12 +1,30 @@
-1.  TODO
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
-11. TODO
-12. TODO
+1.  The C99 standard includes definitions of several new integer types to enhance the portability of programs.
+    <stdint.h> contains new unsigned type like uintN_t, intN_t where N represents no of bits and N=8,16,32,64.
+
+2.  uint8_t, uint32_t, int32_t, and uint16_t are used in program to increase it's portability. The basic integer
+    type were deemed insufficient to store data across diffrent platforms because of their diffrent size on 
+    diffrent platforms. So these new data types used so that they have same size over diffrent platforms.
+
+3.  BYTE = 1 byte
+    DWORD = 4 byte
+    LONG = 4 byte
+    WORD = 2 byte
+
+4.  Magic numbers for BMP file is 0x424d.
+
+5.  bfSize : The size, in bytes, of the bitmap file.
+    biSize : The number of bytes required by the structure. The structure is the struct BITMAPINFOHEADER.
+
+6.  If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+
+7.  biBitCount
+
+8.  fopen may return NULL in line 24 and 32 if it could not open infile or can't create outfile.
+
+9.  Third argument always have 1 in fread because it reads the file 1 time.
+    
+10. 3
+
+11. fseek moves file pointer position to given location, which is the refrence point for offset.
+
+12. SEEK_CUR – It moves file pointer position to given location.
