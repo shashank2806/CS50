@@ -1,0 +1,13 @@
+0.  An invented long word said to mean a lung disease caused by inhaling very fine ash and sand dust. 
+    It is the longest word in the dictionary which has 45 character.
+
+1.  getrusage - get resource usage, Return resource usage measures.
+
+2.  16
+
+3.  We pass before and after by reference because we don't want the entire structure to be copied in 
+    stack of function 'calculate' as it may cause stackoverflow.
+
+4.  TODO
+5.  TODO
+6.  TODO
