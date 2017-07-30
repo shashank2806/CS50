@@ -5,35 +5,36 @@ class Analyzer():
 
     def __init__(self, positives, negatives):
         """Initialize Analyzer."""
-        global p_word
-        global n_word
+
         with open(positives) as f:
-            p_word = f.readlines()
-        p_word = [x.strip() for x in p_word] 
-        for word in p_word[:]:
+            self.positives = f.readlines()
+        self.positives = [x.strip() for x in self.positives] 
+        for word in self.positives[:]:
 	        if word.startswith(";"):
-		        p_word.remove(word)
+		        self.positives.remove(word)
 		        
         with open(negatives) as f:
-            n_word = f.readlines()
-        n_word = [x.strip() for x in n_word] 
-        for word in n_word[:]:
+            self.negatives = f.readlines()
+        self.negatives = [x.strip() for x in self.negatives] 
+        for word in self.negatives[:]:
 	        if word.startswith(";"):
-		        n_word.remove(word)
-		        
-        self.positives = p_word
-        self.negatives = n_word
+		        self.negatives.remove(word)
+
         
 
     def analyze(self, text):
         """Analyze text for sentiment, returning its score."""
-
-        for word in p_word:
-            if text == word:
-                return 1
+        text = text.lower()
+        score = 0
+        tokenizer = nltk.tokenize.TweetTokenizer()
+        tokens = tokenizer.tokenize(text)
+        for token in tokens:
+            for word in self.positives:
+                if token == word:
+                    score += 1
+                
+            for word in self.negatives:
+                if token == word:
+                    score -= 1
             
-        for word in n_word:
-            if text == word:
-                return -1
-            
-        return 0
+        return score
